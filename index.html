@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head prefix="foaf: http://xmlns.com/foaf/0.1/">
-    <title>Introduction to Link Traversal Query Execution</title>
+    <title>Introduction to Link Traversal Query Processing</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,7 @@
   <body class="shower list" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# foaf: http://xmlns.com/foaf/0.1/ owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# org: http://www.w3.org/ns/org# schema: http://schema.org/ cite: http://purl.org/spar/cito/" typeof="schema:PresentationDigitalDocument">
     <header class="caption">
       <div class="title">
-        <h1 property="schema:name">Introduction to Link Traversal Query Execution</h1>
+        <h1 property="schema:name">Introduction to Link Traversal Query Processing</h1>
       </div>
       <div class="captiondata">
         <p class="author" rel="schema:author"><a href="https://www.rubensworks.net/#me">Ruben Taelman</a></p>
@@ -33,7 +33,7 @@
     </header>
 
     <section id="title" class="slide title" inlist="" rel="schema:hasPart" resource="#title">
-      <h2 property="schema:name">Introduction to Link Traversal Query Execution</h2>
+      <h2 property="schema:name">Introduction to Link Traversal Query Processing</h2>
       <ul class="author inline">
           <li class="current"><a href="https://www.rubensworks.net/">Ruben Taelman</a></li>
       </ul>
@@ -41,7 +41,7 @@
     </section>
 
     <section id="start" class="slide" inlist="" rel="schema:hasPart" resource="#start">
-        <h2 property="schema:name" class="big" style="margin-top: 20px">What is Link Traversal Query Execution?</h2>
+        <h2 property="schema:name" class="big" style="margin-top: 20px">What is Link Traversal Query Processing?</h2>
         <ul>
 			<li class="next">
             	<h3>Traditional query execution: index-based</h3>
@@ -54,7 +54,7 @@
 				<span class="indent">➖ Index can become stale.</span>
 			</li>
 			<li class="next">
-            	<h3>Link traversal query execution (LTQP): explorative</h3>
+            	<h3>Link traversal query processing (LTQP): explorative</h3>
   				<span class="indent">Based on the follow-your-nose principle of Linked Data.</span>
 				<br />
 				<span class="indent">➕ Implicit combinations of different sources.</span>
@@ -160,6 +160,99 @@
         <li><a href="#index-existing">Existing approaches</a></li>
 		<li class="current"><a href="#index-next">Next steps</a></li>
       </ul>
+    </section>
+	
+    <section id="contentpolicies" class="slide" inlist="" rel="schema:hasPart" resource="#contentpolicies">
+        <h2 property="schema:name">Content Policies to Reduce Search Space</h2>
+        <ul>
+			<li>
+            	<h3>Reachability semantics: all triples from followed links are considered applicable</h3>
+				<span class="indent"><i>Carol defines an incorrect name for Bob.</i></span>
+			</li>
+			<li>
+            	<h3>Content policies: user-defined "trust" preferences</h3>
+  				<span class="indent">Different people <strong>trust</strong> different sources</span>
+				<br />
+				<span class="indent"><i>Alice queries over her contact information, but only wants to obtain friend-defined names.</i></span>
+			</li>
+			<li>
+            	<h3>Hypothesis: Reduction of search space &rarr; faster querying</h3>
+			</li>
+        </ul>
+    </section>
+	
+    <section id="linkingstructures" class="slide" inlist="" rel="schema:hasPart" resource="#linkingstructures">
+        <h2 property="schema:name">Exploiting Linking Structure</h2>
+        <ul>
+			<li>
+            	<h3>Document linking structure can be declaratively exposed</h3>
+				<span class="indent"><i>Footprints, Shapetrees, TREE, ...</i></span>
+				<br />
+				<span class="indent">To enable auto-discovery, should be fully self-descriptive</span>
+			</li>
+			<li>
+            	<h3>Query execution can prune to only follow links that would give results</h3>
+				<span class="indent"><i>Alice stores her pictures by year, so querying for pictures in May 2020 only requires looking into one directory.</i></span>
+			</li>
+			<li>
+            	<h3>Hypothesis: More fine-grained linking structures will increase performance</h3>
+			</li>
+        </ul>
+    </section>
+	
+    <section id="hybrid" class="slide" inlist="" rel="schema:hasPart" resource="#hybrid">
+        <h2 property="schema:name">Hybrid Query Execution</h2>
+        <ul>
+			<li>
+            	<h3>LTQP optimizations will only go so far</h3>
+				<span class="indent">May never be sufficient for performance-critical cases</span>
+			</li>
+			<li>
+            	<h3>A hybrid of link-traversal-based and index-based query processing</h3>
+				<span class="indent">Combines advantages of both approaches</span>
+			</li>
+			<li>
+            	<h3>Hypothesis: At the cost of preprocessing and partially stale data, LTQP can be made faster</h3>
+			</li>
+        </ul>
+    </section>
+	
+    <section id="benchmarking" class="slide" inlist="" rel="schema:hasPart" resource="#benchmarking">
+        <h2 property="schema:name">How to evaluate and test all of this?</h2>
+        <ul>
+			<li>
+            	<h3>The Web itself is not suited</h3>
+				<span class="indent">Too large and unpredictable to execute reproducible experiments</span>
+			</li>
+			<li>
+            	<h3>Creating a (closed) simulated Web of data</h3>
+				<span class="indent">Based on a social network use case</span>
+				<br />
+				<span class="indent">Different fragmentation strategies for testing different LTQP approaches</span>
+			</li>
+        </ul>
+    </section>
+	
+    <section id="status" class="slide" inlist="" rel="schema:hasPart" resource="#status">
+        <h2 property="schema:name">Current status</h2>
+        <ul>
+			<li>
+            	<h3>Implementation of existing LTQP strategies</h3>
+				<span class="indent">✅ Separate modules in <a href="https://github.com/comunica/comunica-feature-link-traversal">Comunica</a></span>
+			</li>
+			<li>
+            	<h3>Creation of an LTQP Benchmark</h3>
+				<span class="indent">Based on the well-established <a href="http://ldbcouncil.org/developer/snb">LDBC Social Network Benchmark</a></span>
+				<br />
+				<span class="indent">⏳ Additional <a href="https://github.com/rubensworks/rdf-dataset-fragmenter.js">layer that applies fragmentations</a>: WIP</span>
+			</li>
+			<li>
+            	<h3>Incorporating Content policies</h3>
+				<span class="indent">Experimental implementation in <a href="https://github.com/comunica/comunica-feature-link-traversal/tree/feature/content-policies">Comunica</a></span>
+				<br />
+				<span class="indent">⏳Performance tests: WIP</span>
+			</li>
+        </ul>
     </section>
 
     <footer>
