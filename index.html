@@ -68,6 +68,22 @@
         </ul>
     </section>
 	
+    <section id="example" class="slide" inlist="" rel="schema:hasPart" resource="#start">
+        <h2 property="schema:name">Finding the names of my friends</h2>
+        <pre>SELECT ?name WHERE {
+    &lt;https://www.rubensworks.net/#me&gt; foaf:knows ?person.
+    ?person foaf:name ?name.
+}</pre>
+		<ol>
+			<li>Determine seed URLs: <code>https://www.rubensworks.net/#me</code> if query-driven</li>
+			<li>Dereference <code>https://www.rubensworks.net/#me</code></li>
+			<li>Dereference all discovered URLs in <code>https://www.rubensworks.net/#me</code></li>
+			<li>Repeat dereference process recursively...</li>
+			<li>Execute query over all discovered RDF triples</li>
+		</ol>
+		<strong><a href="https://data.rubensworks.net/tmp/comunica-traversal/#transientDatasources=https%3A%2F%2Fwww.rubensworks.net%2F&query=SELECT%20DISTINCT%20*%20WHERE%20%7B%0A%20%20%20%20%3Chttps%3A%2F%2Fwww.rubensworks.net%2F%23me%3E%20foaf%3Aknows%20%3Fperson.%0A%20%20%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%7D">Live example</a></strong>
+    </section>
+	
     <section id="index" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
         <li><a href="#index-existing">Existing approaches</a></li>
