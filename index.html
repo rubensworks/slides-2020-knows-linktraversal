@@ -40,41 +40,53 @@
       <p class="affiliation"><a href="http://idlab.technology/">Ghent University – imec – IDLab, Belgium</a></p>
     </section>
 
-    <section id="start" class="slide" style="background-image: url('img/TODO.jpg')" inlist="" rel="schema:hasPart" resource="#start">
-        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: 2px 2px black">INTRO</h2>
-        <ul style="color: white; text-shadow: 2px 2px black; font-size: 1.3em">
-            <li>TODO</li>
+    <section id="start" class="slide" inlist="" rel="schema:hasPart" resource="#start">
+        <h2 property="schema:name" class="big" style="margin-top: 20px">What is Link Traversal Query Execution?</h2>
+        <ul>
+			<li class="next">
+            	<h3>Traditional query execution: index-based</h3>
+  				<span class="indent">For example: SPARQL query execution over the DBpedia SPARQL endpoint.</span>
+				<br />
+				<span class="indent">➕ Once index is built, queries are mostly fast.</span>
+				<br />
+				<span class="indent">➖ Combining with data outside of the index is harder.</span>
+				<br />
+				<span class="indent">➖ Index can become stale.</span>
+			</li>
+			<li class="next">
+            	<h3>Link traversal query execution (LTQP): explorative</h3>
+  				<span class="indent">Based on the follow-your-nose principle of Linked Data.</span>
+				<br />
+				<span class="indent">➕ Implicit combinations of different sources.</span>
+				<br />
+				<span class="indent">➕ Query execution always happens over live data.</span>
+				<br />
+				<span class="indent">➖ Querying is mostly slower.</span>
+				<br />
+				<span class="indent">➖ Harder to achieve (and define) completeness.</span>
+			</li>
         </ul>
     </section>
 	
     <section id="index" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
-        <li><a href="#index-a">TODO</a></li>
-		<li><a href="#index-b">TODO</a></li>
+        <li><a href="#index-existing">Existing approaches</a></li>
+		<li><a href="#index-next">Next steps</a></li>
       </ul>
     </section>
     
-    <section id="index-a" class="slide index" inlist="" rel="schema:hasPart" resource="#index-a">
+    <section id="index-existing" class="slide index" inlist="" rel="schema:hasPart" resource="#index-existing">
       <ul>
-        <li class="current"><a href="#index-a">TODO</a></li>
-		<li><a href="#index-b">TODO</a></li>
+        <li class="current"><a href="#index-existing">Existing approaches</a></li>
+		<li><a href="#index-next">Next steps</a></li>
       </ul>
     </section>
 	
-    <section id="some-slide" class="slide" inlist="" rel="schema:hasPart" resource="#some-slide">
-      <h2 property="schema:name">TODO: A regular slide</h2>
+    <section id="index-next" class="slide index" inlist="" rel="schema:hasPart" resource="#index-next">
       <ul>
-          <li>
-          	  <h3>A</h3>
-			  <span class="indent">TODO: Description</span>
-          </li>
-          <li>B</li>
-          <li>C</li>
+        <li><a href="#index-existing">Existing approaches</a></li>
+		<li class="current"><a href="#index-next">Next steps</a></li>
       </ul>
-    </section>
-	
-    <section id="conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#conclusion">
-      <h2 property="schema:name" class="big">TODO: Conclusion</h2>
     </section>
 
     <footer>
