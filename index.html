@@ -91,6 +91,13 @@
       </ul>
     </section>
 	
+    <section id="index-existing" class="slide index" inlist="" rel="schema:hasPart" resource="#index-existing">
+      <ul>
+        <li class="current"><a href="#index-existing">Existing approaches</a></li>
+		<li><a href="#index-next">Next steps</a></li>
+      </ul>
+    </section>
+	
     <section id="history" class="slide" inlist="" rel="schema:hasPart" resource="#history">
         <h2 property="schema:name">Brief History of LTQP</h2>
 		<span>Pioneered by Olaf Hartig<span>
@@ -129,12 +136,23 @@
 			</li>
         </ul>
     </section>
-    
-    <section id="index-existing" class="slide index" inlist="" rel="schema:hasPart" resource="#index-existing">
-      <ul>
-        <li class="current"><a href="#index-existing">Existing approaches</a></li>
-		<li><a href="#index-next">Next steps</a></li>
-      </ul>
+	
+    <section id="openproblems" class="slide" inlist="" rel="schema:hasPart" resource="#openproblems">
+        <h2 property="schema:name">Open Problems with LTQP</h2>
+        <ul>
+			<li>
+            	<h3>Slow query execution compared to index-based</h3>
+  				<span class="indent">Mainly caused by number of lookups</span>
+			</li>
+			<li>
+            	<h3>No guarantee of termination</h3>
+  				<span class="indent">Web is unbounded</span>
+			</li>
+			<li>
+            	<h3>No guarantee of completeness</h3>
+  				<span class="indent">No links may exist between source and target</span>
+			</li>
+        </ul>
     </section>
 	
     <section id="index-next" class="slide index" inlist="" rel="schema:hasPart" resource="#index-next">
